@@ -12,17 +12,6 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 
 INTERVAL_SECONDS = 10
 
-starttime = time.monotonic()
-summaries = {}
-
-info = {
-    'start_time': time.strftime("%Y-%m-%d %H:%M:%S"),
-    'interval': os.environ["INTERVAL_KEYWORD_SEC"],
-    'summary': '',
-    'tips': '',
-    'keywords': ''
-}
-
 
 def generate_html(info: dict):
     template = Environment(loader=FileSystemLoader(
@@ -40,6 +29,7 @@ info = {
 }
 
 summaries = {}
+starttime = time.monotonic()
 
 while True:
     summaries[f'{time.strftime("%Y-%m-%d %H:%M:%S")}'] = get_screenshot_keywords()
