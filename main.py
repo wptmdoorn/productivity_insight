@@ -25,11 +25,10 @@ info = {
 
 
 def generate_html(info: dict):
-    env = Environment(loader=FileSystemLoader('.'))
-    template = env.get_template('template.html')
+    template = Environment(loader=FileSystemLoader(
+        'templates')).get_template('report_template.html')
 
-    html = template.render(info=info)
-    return html
+    return template.render(info=info)
 
 
 info = {
@@ -56,7 +55,7 @@ while True:
         info['summary'] = s['summary']
         info['tips'] = s['tips']
 
-        file_name = f"Summary and Productißvity ({time.strftime('%Y_%m_%d_%H_%M')}).pdf"
+        file_name = f"Summary and Productivity ({time.strftime('%Y_%m_%d_%H_%M')}).pdf"
 
         pdfkit.from_string(generate_html(
             info), os.path.join('output', file_name))
