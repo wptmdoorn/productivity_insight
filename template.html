@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Activity Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+        }
+        .keywords {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Activity Report</h1>
+    <p>This report was automatically generated using Python combined with the OpenAI
+        vision API. Please refer to <a href="github">GitHub</a> for the source code.</p>
+    The following parameters were used in generating the report: <br/>
+
+    <p>Start time: {{ info['start_time'] }}</p>
+    <p>End time: {{ info['end_time'] }}</p>
+    <p>Interval: {{ info['interval'] }} seconds</p>
+    
+    <h2>Summary</h2>
+    <p>{{ info['summary'] }}</p>
+
+    <h2>Tips to Improve Productivity</h2>
+    <p>{{ info['tips'] }}</p>
+
+    <h2>Appendix: Observed Keywords</h2>
+    <div class="keywords">
+        {{ info['keywords'] }}
+    </div>
+</body>
+</html>
